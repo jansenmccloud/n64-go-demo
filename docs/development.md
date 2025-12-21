@@ -1,25 +1,22 @@
 # Development
 
 - [Development](#development)
-  - [Setup environment](#setup-environment)
-  - [Build and run project](#build-and-run-project)
+  - [Initial setup environment](#initial-setup-environment)
+  - [Build and run n64go project](#build-and-run-n64go-project)
 
-## Setup environment
+## Initial setup environment
 
-* install go + IDE
-* go install github.com/embeddedgo/dl/go1.24.5-embedded@latest
-* go1.24.4-embedded download
-* go install github.com/clktmr/n64/tools/n64go@latest (or v0.1.2)
-* create go.env file im root
-* export GOENV=go.env
-  * optionally: for code completion start gopls in that environment (e.g. GOENV=go.env <editor>)
-* go get github.com/clktmr/n64@latest (or v0.1.2)
-* go mod init <moduleName>
-* add main.go
-* go mod tidy
+* have a go dev environment
+* have ares emulator installed and its executable in your path
+* `go install github.com/embeddedgo/dl/go1.24.4-embedded@latest`
+* `go1.24.4-embedded download`
+* `go install github.com/clktmr/n64/tools/n64go@v0.1.2`
+* for code completion in your IDE start gopls in the embedded-go environment (GOENV=go.env)
+  * e.g. in VScode settings: `"go.alternateTools": { "go": "pathTo/go.env"}`
 
-## Build and run project
+## Build and run n64go project
 
-* have ares emulator in your path
-* go build ./cmd/n64go
-* go run ./cmd/n64go
+> **Info:** Building and running your project requires to have the embedded-go toolchain in your GOENV
+
+To build your go project into a runnable N64 ROM execute the following from project root directory: 
+* `./buildrun.sh`
